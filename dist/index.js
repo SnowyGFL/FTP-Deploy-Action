@@ -2219,7 +2219,7 @@ function deploy(deployArgs) {
                     yield global.reconnect();
                     retries = args["max-retries"];
                 }
-                catch(ex)
+                catch(error)
                 {
                     retries++;
                     errorHandling_1.prettyError(logger, args, error);
