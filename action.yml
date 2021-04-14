@@ -41,6 +41,9 @@ inputs:
     security:
       required: false
       description: 'strict or loose'
+    max-retries:
+      required: false
+      description: 'Number of retries to be made when the connection fails'
 runs:
   using: 'node12'
   main: 'dist/index.js'

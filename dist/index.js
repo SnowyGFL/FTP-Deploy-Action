@@ -2119,7 +2119,7 @@ function getServerFiles(client, logger, timings, args) {
     });
 }
 function getDefaultSettings(withoutDefaults) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
     if (withoutDefaults["local-dir"] !== undefined) {
         if (!withoutDefaults["local-dir"].endsWith("/")) {
             throw new Error("local-dir should be a folder (must end with /)");
@@ -2144,6 +2144,7 @@ function getDefaultSettings(withoutDefaults) {
         "exclude": (_h = withoutDefaults.exclude) !== null && _h !== void 0 ? _h : exports.excludeDefaults,
         "log-level": (_j = withoutDefaults["log-level"]) !== null && _j !== void 0 ? _j : "standard",
         "security": (_k = withoutDefaults.security) !== null && _k !== void 0 ? _k : "loose",
+        "max-retries": (_l = withoutDefaults.max-retries) !== null && _l !== void 0 ? _l : 5,
     };
 }
 function syncLocalToServer(client, diffs, logger, timings, args) {
@@ -2208,8 +2209,25 @@ function deploy(deployArgs) {
             });
         };
         let totalBytesUploaded = 0;
+        let retries = 0;
+        while (retries < args["max-retries"])
+        {
+
+        }
         try {
-            yield global.reconnect();
+            while (retries < args["max-retries"])
+            {
+                try 
+                {
+                    yield global.reconnect();
+                    retries = args["max-retries"];
+                }
+                catch(ex)
+                {
+                    retries++;
+                    errorHandling_1.prettyError(logger, args, error);
+                }
+            }
             try {
                 const serverFiles = yield getServerFiles(client, logger, timings, args);
                 timings.start("logging");
