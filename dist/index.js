@@ -2144,7 +2144,7 @@ function getDefaultSettings(withoutDefaults) {
         "exclude": (_h = withoutDefaults.exclude) !== null && _h !== void 0 ? _h : exports.excludeDefaults,
         "log-level": (_j = withoutDefaults["log-level"]) !== null && _j !== void 0 ? _j : "standard",
         "security": (_k = withoutDefaults.security) !== null && _k !== void 0 ? _k : "loose",
-        "max-retries": (_l = withoutDefaults.max-retries) !== null && _l !== void 0 ? _l : 5,
+        "max-retries": (_l = withoutDefaults["max-retries"]) !== null && _l !== void 0 ? _l : 5,
     };
 }
 function syncLocalToServer(client, diffs, logger, timings, args) {
