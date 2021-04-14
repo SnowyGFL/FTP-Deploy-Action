@@ -2210,10 +2210,6 @@ function deploy(deployArgs) {
         };
         let totalBytesUploaded = 0;
         let retries = 0;
-        while (retries < args["max-retries"])
-        {
-
-        }
         try {
             while (retries < args["max-retries"])
             {
