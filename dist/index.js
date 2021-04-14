@@ -2215,6 +2215,7 @@ function deploy(deployArgs) {
             {
                 try 
                 {
+                    logger.all(`Attempt: #${retries + 1} of connecting to the server...`);
                     yield global.reconnect();
                     retries = args["max-retries"];
                 }
