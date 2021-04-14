@@ -2169,7 +2169,7 @@ function syncLocalToServer(client, diffs, logger, timings, args) {
         }
         // delete old files
         for (const file of diffs.delete.filter(item => item.type === "file")) {
-            yield removeFile(client, basePath, file.name, logger, args["dry-run"]);
+            yield removeFile(client, "./", file.name, logger, args["dry-run"]);
         }
         // delete old folders
         for (const file of diffs.delete.filter(item => item.type === "folder")) {

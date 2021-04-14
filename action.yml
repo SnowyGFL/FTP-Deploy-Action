@@ -1,4 +1,4 @@
-name: 'FTP Deploy'
+name: 'FTP Deploy Forked'
 description: 'Automate deploying websites and more with this GitHub action'
 author: 'Sam Kirkland'
 inputs:

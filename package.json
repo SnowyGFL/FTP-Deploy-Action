@@ -1,6 +1,6 @@
 {
-  "name": "ftp-deploy-action",
-  "version": "4.0.0",
+  "name": "ftp-deploy-action-forked",
+  "version": "1.0.0",
   "private": true,
   "description": "Automate deploying websites and more with this GitHub action",
   "main": "dist/index.js",
